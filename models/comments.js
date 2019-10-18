@@ -7,6 +7,15 @@ module.exports = function(sequelize, DataTypes) {
       rating: DataTypes.INTEGER,
 
     });
+
+    Comments.associate = function(models) {
+      Comments.belongsTo(models.recipes, {
+        foreignKey: {
+          name: "id",
+
+        }
+      })
+    }
     return Comment;
   };
   
