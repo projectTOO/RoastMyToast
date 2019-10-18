@@ -1,0 +1,49 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(243, 231, 160);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 0 0.9375rem;   
+}
+
+.switch {
+    align-self: flex-end;
+    margin: 0.9375rem;
+}
+.inner-switch {
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #555;
+    border-radius: 1.25rem;
+    width: 3.125rem;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.1875rem;
+    margin-left: 0.3125rem;
+}
+
+.dark,
+.dark * {
+    background-color: #222;
+    color: rgb(243, 231, 160);
+    border-color: #e6e6e6;
+}
+
+h1 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 40px;
+}
+
+#post_comments {
+    display: inline-block;
+}
+
+.bttn-slant.bttn-md {
+    font-size: 20px;
+    font-family: inherit;
+    padding: 5px 12px;
+}
