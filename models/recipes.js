@@ -8,6 +8,12 @@ module.exports = function(sequelize, DataTypes) {
       image: DataTypes.STRING,
 
     });
+    Recipe.associate = function(models){
+        Recipe.hasMany(models.comments, {
+          onDelete: "cascade"
+        })
+    }
+    
     return Recipe;
 
     
