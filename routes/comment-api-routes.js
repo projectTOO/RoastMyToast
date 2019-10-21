@@ -3,12 +3,14 @@ var db = require("../models");
 module.exports = function (app) {
     //for the user comment table
     app.post("/api/comments", function (req, res) {
-      console.log(req);
+      console.log(req.body);
       
-        // db.Comment.create(req.body).then(function (dbComment) {
-        //     res.json(dbComment);
-        //   });
+        db.Comment.create(req.body).then(function (dbComment) {
+            res.json(dbComment);
+          });
     });
+
+   
 
     // app.get("/api/user/:id/comments", function (req, res) {
     //     db.Comment.findOne({
