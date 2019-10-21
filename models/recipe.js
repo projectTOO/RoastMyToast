@@ -8,11 +8,11 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     ingredients: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false
     },
     instructions: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false
     },
     category: {
@@ -44,7 +44,7 @@ module.exports = function (sequelize, DataTypes) {
     Recipe.belongsTo(models.User, {
       foreignKey: {
         allowNull: false,
-        user_id: 'id'
+        UserId: 'id',
       }
     });
 
