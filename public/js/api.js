@@ -1,3 +1,4 @@
+
 // require('dotenv').config();
 // var keys = require("../../keys.js");
 
@@ -34,7 +35,9 @@ $("document").ready(function () {
         settings.data = formData;
 
         $.ajax(settings).done(function (response) {
-            console.log(response);
+            grab = response.slice(15,22);
+            console.log(grab);
+            window.open('https://i.imgur.com/' + grab, '_blank');
 
         });
     })
