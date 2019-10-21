@@ -21,7 +21,21 @@ module.exports = function (sequelize, DataTypes) {
       validate: {
         len: [1, 255]
       }
-    }
+    },
+    image_url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 255]
+      }
+    },
+    // user_name: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   validate: {
+    //     len: [1, 255]
+    //   }
+    // },
   });
 
   Recipe.associate = function (models) {
@@ -29,9 +43,14 @@ module.exports = function (sequelize, DataTypes) {
     // A Recipe can't be created without an User due to the foreign key constraint
     Recipe.belongsTo(models.User, {
       foreignKey: {
-        allowNull: false
+        allowNull: false,
+        user_id: 'id'
       }
     });
+
+    Recipe.hasMany(models.Comment, {
+      onDelete: "cascade"
+    })
   };
 
   return Recipe;
