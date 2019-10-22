@@ -24,18 +24,15 @@ module.exports = function (sequelize, DataTypes) {
     },
     image_url: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         len: [1, 255]
-      }
+      }  
     },
-    // user_name: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    //   validate: {
-    //     len: [1, 255]
-    //   }
-    // },
+    rating: {
+      type: DataTypes.INTEGER,
+      default: 0
+    }
   });
 
   Recipe.associate = function (models) {

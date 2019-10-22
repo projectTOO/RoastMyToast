@@ -15,12 +15,13 @@ module.exports = function (sequelize, DataTypes) {
 
   User.associate = function (models) {
     // Associating User with Recipes
-    // When an User is deleted, also delete any associated Recipes, Posts, Ratings, Images, etc.
+    // When an User is deleted, also delete any associated Recipes
     User.hasMany(models.Recipe, {
       onDelete: "cascade"
     });
-
-    User.hasMany(models.UserComments, {
+    // Associating User with Comments
+    // When an User is deleted, also delete any associated Comments
+    User.hasMany(models.Comment, {
       onDelete: "cascade"
     });
   };
