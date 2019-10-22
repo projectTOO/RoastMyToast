@@ -1,3 +1,6 @@
+require("dotenv").config
+var keys = require("../keys.js");
+
 function getPost() {
     var newPost = {
         name: $("#name").val().trim(),
@@ -16,7 +19,7 @@ $("document").ready(function () {
             var $files = $(this).get(0).files;
             // console.log("Uploading file to Imgur..");
             var apiUrl = 'https://api.imgur.com/3/image';
-            var apiKey = 'd9cdab915eca601';
+            var apiKey = keys.id;
             var settings = {
                 async: false,
                 crossDomain: true,
