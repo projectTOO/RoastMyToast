@@ -3,14 +3,14 @@ module.exports = function (sequelize, DataTypes) {
     // Giving the User model a name of type STRING
     name: DataTypes.STRING,
     // The email cannot be null, and must be a proper email before creation
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true
-      }
-    }
+    // email: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   unique: true,
+    //   validate: {
+    //     isEmail: true
+    //   }
+    // }
   });
 
   User.associate = function (models) {

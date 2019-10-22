@@ -8,11 +8,11 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     ingredients: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false
     },
     instructions: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false
     },
     category: {
@@ -40,9 +40,14 @@ module.exports = function (sequelize, DataTypes) {
     // A Recipe can't be created without an User due to the foreign key constraint
     Recipe.belongsTo(models.User, {
       foreignKey: {
-        allowNull: false
+        allowNull: false,
+        UserId: 'id',
       }
     });
+
+    Recipe.hasMany(models.Comment, {
+      onDelete: "cascade"
+    })
   };
 
   return Recipe;
