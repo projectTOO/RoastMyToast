@@ -19,15 +19,12 @@ module.exports = function (sequelize, DataTypes) {
     User.hasMany(models.Recipe, {
       onDelete: "cascade"
     });
-  };
-
-  User.associate = function (models) {
     // Associating User with Comments
     // When an User is deleted, also delete any associated Comments
     User.hasMany(models.Comment, {
       onDelete: "cascade"
     });
   };
-  
+
   return User;
 };
