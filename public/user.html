@@ -22,11 +22,18 @@
     <h1>Roast My Toast!</h1>
 	<br>
 	<form action="../public/index.html" method="POST">
-		<textarea type="text" name=username placeholder="Select a Username"></textarea><br>
-		<input type="submit" value="Submit" name="submit">
+		<textarea type="text" id="username" placeholder="Select a Username"></textarea><br>
+		<textarea type="text" id="email" placeholder="What's your email?"></textarea><br>
+		<input type="submit" value="Submit" id="submit">
 	</form>
 	
 
 </body>
-
+	<script>
+	$("#submit").on("click", function(e) {
+		e.preventDefaul()
+		console.log($("#username").val().trim())
+	})
+	</script>
+	<script src="js/js.js"></script>
 </html>
