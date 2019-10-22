@@ -14,7 +14,7 @@ module.exports = function(app) {
 
   // index route loads index.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/user.html"));
+    res.redirect("/user");
   });
 
   // user route loads user.html

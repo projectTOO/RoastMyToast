@@ -36,15 +36,35 @@
 
 		</table>
 		<br>
-		<textarea type="text" name="message" placeholder="Type your comment here..."></textarea>
-		<textarea type="text" name="rating" placeholder="Type your rating here..."></textarea>
+		<textarea type="text" id="message" placeholder="Type your comment here..."></textarea>
+		<textarea type="text" id="rating" placeholder="Type your rating here..."></textarea>
+		<!-- need image -->
 
 		<br>
-		<input type="submit" value="Submit" name="submit_comment">
+		<input type="submit" value="Submit" id="submit_comment">
 	</div>
 
 
 </body>
 <script src="js/js.js"></script>
+<script>
+		$("#submit_comment").on("click", function (e) {
+		e.preventDefault()
+		var Message = $("#message").val().trim();
+		var Rating = $("#rating").val().trim()
+
+		var newComment = {
+			//need userID
+			message: Message,
+			rating: Rating,
+			//need recipeID
+		}
+		console.log(newComment)
+		$.ajax("/api/comments", {
+			type: "POST",
+			data: newComment
+		})
+	})
+</script>
 
 </html>
