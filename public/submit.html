@@ -70,7 +70,7 @@
         </div>
 
         <br><br>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-primary" id="submitrecipe">Submit</button>
 
     </form>
 
@@ -81,28 +81,31 @@
 
 </body>
 <script src="js/js.js"></script>
-<script src="../routes/post-api-routes.js"></script>
+<!-- <script src="../routes/post-api-routes.js"></script> -->
 <script>
-	$("#submit").on("click", function (e) {
-		e.preventDefault()
+	$("#submitrecipe").on("click", function (e) {
+        e.preventDefault()
+        alert("hi")
 		var Title = $("#title").val().trim();
-        var Category = $("#cateogry").val().trim()
+        var Category = $("#category").val();
         var Ingredients = $("#ingredients").val().trim()
         var Instructions = $("#instructions").val().trim()
 
         var newRecipe = {
+            //need user ID
             title: Title,
             category: Category,
             ingredients: Ingredients,
             instructions: Instructions,
+            // need image url
 
         }
 
         console.log(newRecipe)
 	
-		$.ajax("/api/users", {
+        $.ajax("/api/recipes", {
 			type: "POST",
-			data: newUser
+			data: newRecipe
 		})
 	})
 </script>
