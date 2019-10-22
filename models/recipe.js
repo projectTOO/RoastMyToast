@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
   var Recipe = sequelize.define("Recipe", {
-    name: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -22,7 +22,7 @@ module.exports = function (sequelize, DataTypes) {
         len: [1, 255]
       }
     },
-    pic_url: {
+    image_url: {
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
