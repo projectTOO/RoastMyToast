@@ -5,35 +5,46 @@
 	<meta charset="UTF-8">
 	<title>Project2 - User</title>
 
-     <!-- style -->
-	 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700&display=swap" rel="stylesheet">
-	 <link rel="stylesheet" type="text/css" href="css/style.css">
-	 <!-- animsition.css -->
-	 <link rel="stylesheet" href="./dist/css/animsition.min.css">
-	 <!-- jQuery -->
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	 <!-- animsition.js -->
-	 <script src="./dist/js/animsition.min.js"></script>
+	<!-- style -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- animsition.css -->
+	<link rel="stylesheet" href="./dist/css/animsition.min.css">
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<!-- animsition.js -->
+	<script src="./dist/js/animsition.min.js"></script>
 
 <body>
 	<div class="switch">Dark mode:
-        <span class="inner-switch">OFF</span>
-    </div>
-    <h1>Roast My Toast!</h1>
+		<span class="inner-switch">OFF</span>
+	</div>
+	<h1>Roast My Toast!</h1>
 	<br>
 	<form action="../public/index.html" method="POST">
 		<textarea type="text" id="username" placeholder="Select a Username"></textarea><br>
 		<textarea type="text" id="email" placeholder="What's your email?"></textarea><br>
 		<input type="submit" value="Submit" id="submit">
 	</form>
-	
+
 
 </body>
-	<script>
-	$("#submit").on("click", function(e) {
-		e.preventDefaul()
-		console.log($("#username").val().trim())
+<script>
+	$("#submit").on("click", function (e) {
+		e.preventDefault()
+		var username = $("#username").val().trim();
+		var newemail = $("#email").val().trim()
+
+		var newUser = {
+			name: username,
+			email: newemail,
+		}
+		$.ajax("/api/users", {
+			type: "POST",
+			data: newUser
+		})
 	})
-	</script>
-	<script src="js/js.js"></script>
+</script>
+<script src="js/js.js"></script>
+
 </html>
