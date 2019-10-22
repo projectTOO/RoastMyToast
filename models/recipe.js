@@ -28,10 +28,6 @@ module.exports = function (sequelize, DataTypes) {
       validate: {
         len: [1, 255]
       }  
-    },
-    rating: {
-      type: DataTypes.INTEGER,
-      default: 0
     }
   });
 

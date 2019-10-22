@@ -5,16 +5,27 @@
 	<meta charset="UTF-8">
 	<title>Project2 - User</title>
 
-  <!-- Latest compiled and minified CSS & JS -->
-	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
-  <script src="https://code.jquery.com/jquery.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</head>
+     <!-- style -->
+	 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700&display=swap" rel="stylesheet">
+	 <link rel="stylesheet" type="text/css" href="css/style.css">
+	 <!-- animsition.css -->
+	 <link rel="stylesheet" href="./dist/css/animsition.min.css">
+	 <!-- jQuery -->
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	 <!-- animsition.js -->
+	 <script src="./dist/js/animsition.min.js"></script>
 
 <body>
-  
-<p>User: Connected to server!</p>
+	<div class="switch">Dark mode:
+        <span class="inner-switch">OFF</span>
+    </div>
+    <h1>Roast My Toast!</h1>
+	<br>
+	<form action="../public/index.html" method="POST">
+		<textarea type="text" name=username placeholder="Select a Username"></textarea><br>
+		<input type="submit" value="Submit" name="submit">
+	</form>
+	
 
 </body>
 
