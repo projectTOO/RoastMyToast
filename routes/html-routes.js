@@ -27,9 +27,9 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/recipe.html"));
   });
 
-  // post route loads post.html
-  app.get("/post", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/post.html"));
+  // post route loads comment.html
+  app.get("/comment", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/comment.html"));
   });
 
 };

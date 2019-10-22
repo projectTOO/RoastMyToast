@@ -1,5 +1,5 @@
 -- Drops the blogger if it exists currently --
-DROP DATABASE IF EXISTS recipe_db;
+DROP DATABASE IF EXISTS project2_db;
 -- Creates the "blogger" database --
-CREATE DATABASE recipe_db;
-USE recipe_db;
+CREATE DATABASE project2_db;
+USE project2_db;
