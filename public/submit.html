@@ -82,5 +82,29 @@
 </body>
 <script src="js/js.js"></script>
 <script src="../routes/post-api-routes.js"></script>
+<script>
+	$("#submit").on("click", function (e) {
+		e.preventDefault()
+		var Title = $("#title").val().trim();
+        var Category = $("#cateogry").val().trim()
+        var Ingredients = $("#ingredients").val().trim()
+        var Instructions = $("#instructions").val().trim()
+
+        var newRecipe = {
+            title: Title,
+            category: Category,
+            ingredients: Ingredients,
+            instructions: Instructions,
+
+        }
+
+        console.log(newRecipe)
+	
+		$.ajax("/api/users", {
+			type: "POST",
+			data: newUser
+		})
+	})
+</script>
 
 </html>
