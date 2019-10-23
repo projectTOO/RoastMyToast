@@ -38,16 +38,29 @@
             var data;
 
             function getRecipes() {
+                var userID;
+
                 $.get("/api/recipes", function (data) {
-                    console.log(data);
                     for (var i = 0; i < data.length; i++) {
                         var row = $(".postContainer");
                         row.addClass("aPost");
+                        row.append("<p>" + data[i].title + "</p>");
+                        row.append(`<p id='fillmein${i}'></p>`);
+                        row.append("<p>Category: " + data[i].category + "</p>");
+                        userID = data[i].UserId;
                         row.append("<img src='" + data[i].image_url + "' width=200>");
 
-                        row.append("<p>" + data[i].title);
-                        row.append("<p>Category: " + data[i].category + "</p>");
-                        row.append("<p>Instructions: " + data[i].instructions + "</p>");
+
+                        // row.append(`<p><a href='/api/recipes/:${data[i].id}'>${"See Full Recipe"}</a><hr>`);
+
+
+
+                        var dataName = "";
+
+                        $.get("/api/users/" + userID, function (data2) {
+                            dataName = data2.name;
+                            $('#fillmein' + (data2.id - 1)).text(dataName)
+                        })
                     }
                 });
             }
