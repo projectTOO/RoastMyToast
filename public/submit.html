@@ -81,6 +81,62 @@
 
 </body>
 <script src="js/js.js"></script>
-<script src="../routes/post-api-routes.js"></script>
+<!-- <script src="../routes/post-api-routes.js"></script> -->
+<script>
+	$("#submit1").on("click", function (e) {
+        e.preventDefault()
+        //UPLOADING IMAGE LINK
+        var imgur = "";
+        var $files = $("#inputGroupFile04").get(0).files;
+            var apiUrl = 'https://api.imgur.com/3/image';
+            var apiKey = "d9cdab915eca601";
+            var settings = {
+                async: false,
+                crossDomain: true,
+                processData: false,
+                contentType: false,
+                type: 'POST',
+                url: apiUrl,
+                headers: {
+                    Authorization: 'Client-ID ' + apiKey,
+                    Accept: 'application/json'
+                },
+                mimeType: 'multipart/form-data'
+            };
+            var formData = new FormData();
+            formData.append("image", $files[0]);
+            settings.data = formData;
+
+            $.ajax(settings).done(function (response) {
+                imgObj = JSON.parse(response);
+                imgur = imgObj.data.link;
+            });
+
+
+		var Title = $("#title").val().trim();
+        var Category = $("#category").val();
+        var Ingredients = $("#ingredients").val().trim()
+        var Instructions = $("#instructions").val().trim()
+
+        var newRecipe = {
+            //need user ID
+            title: Title,
+            category: Category,
+            ingredients: Ingredients,
+            instructions: Instructions,
+            image_url: imgur,
+
+        }
+
+        console.log(newRecipe)
+	
+        $.ajax("/api/recipes", {
+			type: "POST",
+			data: newRecipe
+        })
+        
+        //redirect to homepage
+	})
+</script>
 
 </html>

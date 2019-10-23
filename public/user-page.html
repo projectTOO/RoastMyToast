@@ -21,7 +21,7 @@
     </div>
     <h1>Roast My Toast!</h1>
     <br>
-    <h2> [Username] </h2>
+    <h2 id="username"> [Username] </h2>
 
     <h3> Recipes </h3>
     <tr>
@@ -31,7 +31,7 @@
         <td> [IMAGE] </td>
     </tr>
     
-    <h3> Posts </h3>
+    <h3> Comments </h3>
     <tr>
         <td> [Recipe Name (hyper linked)]: </td>
         <td> [Their comment] </td>
@@ -41,12 +41,23 @@
 
 
 </body>
-<script>
-    $("#submit").on("click", function (e) {
-        e.preventDefaul()
-        console.log($("#username").val().trim())
-    })
-</script>
+
 <script src="js/js.js"></script>
+<script>
+    	$.get("/api/users/" , function(data) {
+			// data.preventDefault();
+			console.log(data);
+            $("#username").text(data.name)
+            //take id
+
+        });
+        $.get("/api/users/2/recipes" , function(data2) {
+			// data.preventDefault();
+			console.log(data2);
+            $("#title").text(data2.title)
+            // create new table entry, insert
+
+	    });
+</script>
 
 </html>

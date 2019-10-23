@@ -19,7 +19,11 @@
 <body>
 	<h1>Roast My Toast </h1>
 	<div class="post">
-		<h2> Title of Selected Recipe Here </h2>
+		<h2 id="title"> Title of Selected Recipe Here </h2> <br>
+		<p id="category"> hot </p>
+		<p id="ingredients"> Boil water </p>
+		<p id="instructions"> water </p>
+
 		<img id="post_img" src="https://etc.usf.edu/clipart/21900/21988/square_21988_sm.gif">
 		<br>
 		<table id="post_comments">
@@ -36,15 +40,46 @@
 
 		</table>
 		<br>
-		<textarea type="text" name="message" placeholder="Type your comment here..."></textarea>
-		<textarea type="text" name="rating" placeholder="Type your rating here..."></textarea>
+		<textarea type="text" id="message" placeholder="Type your comment here..."></textarea>
+		<textarea type="text" id="rating" placeholder="Type your rating here..."></textarea>
+		<!-- need image -->
 
 		<br>
-		<input type="submit" value="Submit" name="submit_comment">
+		<input type="submit" value="Submit" id="submit_comment">
 	</div>
 
 
 </body>
 <script src="js/js.js"></script>
+<script>
+	$.get("/api/recipes/1", function (data) {
+		// data.preventDefault();
+		console.log(data);
+		$("#title").text(data.title)
+		$("#category").text(data.category)
+		$("#ingredients").text(data.ingredients)
+		$("#instructions").text(data.instructions)
+
+	});
+	$("#submit_comment").on("click", function (e) {
+		e.preventDefault()
+		var Message = $("#message").val().trim();
+		var Rating = $("#rating").val().trim()
+
+		var newComment = {
+			//need userID
+			message: Message,
+			rating: Rating,
+			//need recipeID
+		}
+		console.log(newComment)
+		$.ajax("/api/comments", {
+			type: "POST",
+			data: newComment
+		})
+	})
+
+
+</script>
 
 </html>
