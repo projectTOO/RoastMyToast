@@ -74,7 +74,7 @@ module.exports = {
         UserId: 4
       },
       {
-        title: "Break Pudding",
+        title: "Bread Pudding",
         ingredients: "3 eggs, beaten\n1 1/2 cups white sugar\n2 tablespoons light brown sugar\n1/2 teaspoon ground cinnamon\n1/4 cup butter, melted\n3 cups whole milk\n10 slices hearty farmhouse-style bread, toasted and cut into cubes\n1 cup raisins\n1/2 cup light brown sugar\n1 tablespoon all-purpose flour\n1 pinch ground cinnamon1 egg\n2 tablespoons butter, melted\n1 1/4 cups whole milk\n1 pinch salt\n1 tablespoon vanilla extract\n",
         instructions: "1. Preheat oven to 375 degrees F (190 degrees C). Grease a 2-quart baking dish.\n2. In a mixing bowl, whisk 3 eggs, white sugar, 2 tablespoons of light brown sugar, 1/2 teaspoon of cinnamon, 1/4 cup of butter, and 3 cups of whole milk together, and gently stir in the bread cubes and raisins. Lightly spoon the mixture into the prepared baking dish.\n3. Bake in the preheated oven until browned and set in the middle, 50 to 55 minutes; cover the dish with foil after 30 minutes to prevent excessive browning. Let the pudding stand for 10 minutes before serving.\n4. For vanilla sauce, whisk 1/2 cup of light brown sugar, the flour, a pinch of cinnamon, 1 egg, 2 tablespoons of melted butter, 1 1/4 cups of whole milk,and salt together in a heavy saucepan until smooth. Heat over medium heat, whisking constantly, until thickened and the sauce coats the back of a spoon, 10 to 12 minutes. Stir in the vanilla extract. Pour sauce over warm bread pudding, or serve on the side in a bowl.\n",
         category: "Dessert",
