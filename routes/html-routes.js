@@ -22,6 +22,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/user.html"));
   });
 
+  app.get("/index", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+  });
+
     // post route loads comment.html
     app.get("/userpage", function(req, res) {
       res.sendFile(path.join(__dirname, "../public/user-page.html"));
