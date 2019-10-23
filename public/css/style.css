@@ -54,3 +54,7 @@ h1 {
     font-family: inherit;
     padding: 5px 12px;
 }
+
+.table {
+    margin: 0px auto;
+}
