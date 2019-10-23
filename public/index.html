@@ -24,48 +24,38 @@
         <span class="inner-switch">OFF</span>
     </div>
 
-    <h1>Roast My Toast!</h1>
+    <img id="headerLogo" src="./img/rmt_logo_trans.png">
     <br>
     <div class="animsition">
         <a href="./submit.html" class="animsition-link">Create a post.</a>
         <br><br><br>
+        <div class="postContainer">
 
-        <!-- This is each post -->
-        <div class="post">
-            <img id="post_img" src="https://etc.usf.edu/clipart/21900/21988/square_21988_sm.gif">
-            <div id="post_comments">
-                <ul>
-                    <li>Comment</li>
-                    <li>Comment</li>
-                    <li>Comment</li>
-                </ul>
-            </div>
-            <br>
-            <textarea type="text" name="message" placeholder="Type your comment here..."></textarea>
-            <br>
-            <input type="submit" value="Submit" name="submit_comment">
+            <!-- posts go here -->
+
         </div>
+        <script>
+            var data;
 
-        <!-- Example post 2 -->
-        <hr>
+            function getRecipes() {
+                $.get("/api/recipes", function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        var row = $(".postContainer");
+                        row.addClass("aPost");
+                        row.append("<img src='" + data[i].image_url + "' width=200>");
 
-        <div class="post">
-            <img id="post_img" src="https://etc.usf.edu/clipart/21900/21988/square_21988_sm.gif">
-            <div id="post_comments">
-                <ul>
-                    <li>Comment</li>
-                    <li>Comment</li>
-                    <li>Comment</li>
-                </ul>
-            </div>
-            <br>
-            <textarea type="text" name="message" placeholder="Type your comment here..."></textarea>
-            <br>
-            <input type="submit" value="Submit" name="submit_comment">
-        </div>
+                        row.append("<p>" + data[i].title);
+                        row.append("<p>Category: " + data[i].category + "</p>");
+                        row.append("<p>Instructions: " + data[i].instructions + "</p>");
+                    }
+                });
+            }
+            getRecipes();
 
 
-    </div>
+
+        </script>
 </body>
 <script src="js/js.js"></script>
 
