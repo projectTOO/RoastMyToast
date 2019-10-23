@@ -1,26 +1,37 @@
--- // Users table
--- insert into users(name, email) values("Kemp", "test@gmail.com");
--- insert into users(name, email) values("Fahad", "test@gmail.com");
--- insert into users(name, email) values("Gio", "test@gmail.com");
--- insert into users(name, email) values("John", "test@gmail.com");
--- insert into users(name, email) values("Mary", "test@gmail.com");
+-- Users table
+insert into users(name, email, createdAt, updatedAt) values("Jim", "jj@gmail.com", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+insert into users(name, email, createdAt, updatedAt) values("Robert", "bob@gmail.com", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+insert into users(name, email, createdAt, updatedAt) values("Laura", "lir@xfinity.com", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+insert into users(name, email, createdAt, updatedAt) values("John", "jack@outlook.com", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+insert into users(name, email, createdAt, updatedAt) values("Mary", "mary@icloud.com", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+insert into users(name, email, createdAt, updatedAt) values("Charles", "chuck@gmail.com", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
--- Lasagna	01-Kemp
--- California Roll	02-Fahad
--- Salmon Salad	01-Kemp
--- Lasagna	03-Gio
--- Fajitas	03-Gio
--- New York Steak	02-Fahad
--- Bread Puddin	05-Mary
+-- Recipes table
+insert into recipes(title, ingredients, instructions, category, image_url, createdAt, updatedAt, UserID) values("Lasagna", "1 pound bulk Italian sausage;1 1/2 pounds lean ground beef;1 (8 ounce) package fresh mushrooms, coarsely chopped;1 teaspoon salt;1/2 teaspoon freshly ground black pepper;1/2 teaspoon dried Italian herb seasoning (optional);
+1/4 teaspoon red pepper flakes;6 cups prepared marinara sauce;2 tablespoons water, plus more as needed;2 eggs;2 pounds whole-milk ricotta cheese;1 (8 ounce) container fresh mozzarella cheese, diced;2/3 cup freshly shredded Parmigiano-Reggiano cheese;1 teaspoon salt;1/4 teaspoon freshly ground black pepper;1 pinch cayenne pepper, or to taste;
+1/4 cup chopped fresh parsley;1 (16 ounce) package lasagna noodles;1 (8 ounce) container fresh mozzarella cheese, diced;
+1/2 cup freshly shredded Parmigiano-Reggiano cheese;", "1. Place sausage and ground beef into a large saucepan over medium heat; cook and stir until meat is browned and crumbly, about 10 minutes. Break the meat apart as it cooks. Stir in mushrooms, 1 teaspoon salt, 1/2 teaspoon black pepper, Italian herb seasoning, and red pepper flakes. Turn heat to medium-high and cook until mushrooms have given off their juices and bottom of pan is almost dry.2. Pour prepared marinara sauce into meat mixture. Pour water into marinara sauce jar and shake to get all the sauce out of the jar; add to mixture. Reduce heat to low and simmer until meat is extremely tender, about 2 hours. Add a little more water if sauce becomes too thick. Skim excess fat from surface of the sauce and season with more salt and black pepper, if needed. Turn off heat.3. Preheat oven to 375 degrees F (190 degrees C).4. Beat eggs in a large bowl and stir in ricotta cheese, 8 ounces diced mozzarella cheese, and 2/3 cup Parmigiano-Reggiano cheese. Season cheese mixture with 1 teaspoon salt, 1/4 teaspoon black pepper, and cayenne pepper; mix in parsley.5. Bring a large pot of salted water to a boil. Cook lasagna in the boiling water, stirring occasionally, until cooked through but firm to the bite, about 8 minutes. Drain and rinse noodles and set aside in a bowl of cold water.6. Spread 1/4 the sauce into the bottom of a 10x15-inch baking pan. Top with 1/3 the noodles and spread 1/2 the ricotta cheese mixture over noodles. Spread 1/4 the meat sauce over the cheese, top with 1/3 the noodles, and spread remaining 1/2 the ricotta mixture over the noodles. Spread 1/4 the meat sauce over the cheese filling. Tap the casserole dish lightly on a sturdy work surface to settle the layers. Arrange last 1/3 the noodles over sauce and spread remaining 1/4 the sauce over the noodles. Dot top of the casserole with 4 ounces diced fresh mozzarella cheese and sprinkle with 1/2 cup Parmigiano-Reggiano cheese.7. Cover casserole with aluminum foil, being sure not to touch the top of the casserole with the foil. Place casserole onto a baking sheet to catch spills.8. Bake in the preheated oven for 30 minutes. Remove foil and cook until lasagna is golden brown and bubbling, 30 to 35 more minutes. Let set for 20 minutes before cutting into squares.", "Lunch", "https://images.media-allrecipes.com/images/61397.jpg", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1);
+insert into recipes(title, ingredients, instructions, category, image_url, createdAt, updatedAt, UserID) values("California Roll", "ingr-1", "inst-1", "breakfast", "/url-1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 2);
+insert into recipes(title, ingredients, instructions, category, image_url, createdAt, updatedAt, UserID) values("Salmon Salad", "ingr-1", "inst-1", "salad", "/url-1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1);
+insert into recipes(title, ingredients, instructions, category, image_url, createdAt, updatedAt, UserID) values("Lasagna", "ingr-1", "inst-1", "italian", "/url-1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 3);
+insert into recipes(title, ingredients, instructions, category, image_url, createdAt, updatedAt, UserID) values("Fajitas", "ingr-1", "inst-1", "lunch", "/url-1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 4);
+insert into recipes(title, ingredients, instructions, category, image_url, createdAt, updatedAt, UserID) values("New York Steak", "ingr-1", "inst-1", "dinner", "/url-1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 4);
+insert into recipes(title, ingredients, instructions, category, image_url, createdAt, updatedAt, UserID) values("Bread Puddin", "ingr-1", "inst-1", "dessert", "/url-1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 5);
 
--- -- // Recipes table
--- insert into recipes(name, ingredients, instructions, category, image_url) values("Lasagna", "ingr-1", "inst-1", "lunch", "/url-1", 0);
--- insert into recipes(name, ingredients, instructions, category, image_url) values("California Roll", "ingr-1", "inst-1", "breakfast", "/url-1", 0);
--- insert into recipes(name, ingredients, instructions, category, image_url) values("Salmon Salad", "ingr-1", "inst-1", "salad", "/url-1", 0);
--- insert into recipes(name, ingredients, instructions, category, image_url) values("Lasagna", "ingr-1", "inst-1", "italian", "/url-1", 0);
--- insert into recipes(name, ingredients, instructions, category, image_url) values("Fajitas", "ingr-1", "inst-1", "lunch", "/url-1", 0);
--- insert into recipes(name, ingredients, instructions, category, image_url) values("New York Steak", "ingr-1", "inst-1", "dinner", "/url-1", 0);
--- insert into recipes(name, ingredients, instructions, category, image_url) values("Bread Puddin", "ingr-1", "inst-1", "dessert", "/url-1", 0);
-
--- -- // Comments table
+-- Comments table
+insert into comments(comment, rating, image_url, createdAt, updatedAt, RecipeID, UserID) values ("Delicious", 4, "/url-1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1, 4);
+insert into comments(comment, rating, image_url, createdAt, updatedAt, RecipeID, UserID) values ("Tasty", 3, "/url-1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1, 5);
+insert into comments(comment, rating, image_url, createdAt, updatedAt, RecipeID, UserID) values ("Very good", 3, "/url-2", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1, 2);
+insert into comments(comment, rating, image_url, createdAt, updatedAt, RecipeID, UserID) values ("Easy to make", 4, "/url-1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 2, 4);
+insert into comments(comment, rating, image_url, createdAt, updatedAt, RecipeID, UserID) values ("Fresh", 3, "/url-1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 2, 1);
+insert into comments(comment, rating, image_url, createdAt, updatedAt, RecipeID, UserID) values ("Great flavor", 3, "/url-3", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 3, 2);
+insert into comments(comment, rating, image_url, createdAt, updatedAt, RecipeID, UserID) values ("Great flavor", 3, "/url-3", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 4, 1);
+insert into comments(comment, rating, image_url, createdAt, updatedAt, RecipeID, UserID) values ("Plain", 1, "/url-3", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 4, 6);
+insert into comments(comment, rating, image_url, createdAt, updatedAt, RecipeID, UserID) values ("Tasty", 3, "/url-3", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 5, 3);
+insert into comments(comment, rating, image_url, createdAt, updatedAt, RecipeID, UserID) values ("Too dry", 1, "/url-6", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 6, 6);
+insert into comments(comment, rating, image_url, createdAt, updatedAt, RecipeID, UserID) values ("Overcooked", 1, "/url-4", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 6, 4);
+insert into comments(comment, rating, image_url, createdAt, updatedAt, RecipeID, UserID) values ("Hard to chew", 1, "/url-2", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 6, 2);
+insert into comments(comment, rating, image_url, createdAt, updatedAt, RecipeID, UserID) values ("Salty", 1, "/url-5", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 6, 5);
+insert into comments(comment, rating, image_url, createdAt, updatedAt, RecipeID, UserID) values ("Too spicy", 2, "/url-3", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 5, 3);
+insert into comments(comment, rating, image_url, createdAt, updatedAt, RecipeID, UserID) values ("Delicious", 4, "/url-3", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 7, 4);
 
