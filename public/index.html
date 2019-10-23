@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./img/fav.png">
+
     <!-- style -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -106,7 +108,7 @@
                         console.log(data[i])
                         var row = $(".postContainer");
                         row.addClass("aPost");
-                        row.append(`<b data-id="${data[i].id}" class="expandrecipe">${data[i].title}</b>`);
+                        row.append(`<h3 data-id="${data[i].id}" class="expandrecipe">${data[i].title}</h3>`);
                         row.append(`<p data-id="${data[i].UserId}" class='usernametag' id='fillmein${i}'></p>`);
                         row.append("<p>Category: " + data[i].category + "</p>");
                         userID = data[i].UserId;

@@ -1,3 +1,12 @@
+img {
+    opacity: .85;
+    transition: opacity .5s ease-in-out;
+}
+
+img:hover {
+    opacity: 1;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: rgb(243, 231, 160);
@@ -6,13 +15,19 @@ body {
     flex-direction: column;
     max-width: 50rem;
     margin: 0 auto;
-    padding: 0 0.9375rem;   
+    padding: 0 0.9375rem;
+}
+
+.tiny {
+    font-size: 12px;
+    color: gray;
 }
 
 .switch {
     align-self: flex-end;
     margin: 0.9375rem;
 }
+
 .inner-switch {
     display: inline-block;
     cursor: pointer;
@@ -25,8 +40,7 @@ body {
     margin-left: 0.3125rem;
 }
 
-.dark,
-.dark * {
+.dark, .dark * {
     background-color: rgb(37, 37, 37);
     color: rgb(243, 231, 160);
     border-color: #e6e6e6;
