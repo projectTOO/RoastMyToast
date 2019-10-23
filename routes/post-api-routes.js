@@ -1,6 +1,3 @@
-require("dotenv").config
-var keys = require("../keys.js");
-
 function getPost() {
     var newPost = {
         name: $("#name").val().trim(),
@@ -13,13 +10,14 @@ function getPost() {
 
 $("document").ready(function () {
 
-    $("#submit").on("click", function (e) {
+    $("#submit1").on("click", function (e) {
         e.preventDefault();
-        $('input[type=file]').on("change", function () {
-            var $files = $(this).get(0).files;
+        console.log("Submitted.")
+        var $files = $("#inputGroupFile04").get(0).files;
+        console.log($files);
             // console.log("Uploading file to Imgur..");
             var apiUrl = 'https://api.imgur.com/3/image';
-            var apiKey = keys.id;
+            var apiKey = "d9cdab915eca601";
             var settings = {
                 async: false,
                 crossDomain: true,
@@ -40,16 +38,7 @@ $("document").ready(function () {
             $.ajax(settings).done(function (response) {
                 imgObj = JSON.parse(response);
 
-                return imgObj.data.link;
-
+                alert(imgObj.data.link);
             });
-
         })
-        getPost();
-        $.post("/api/post", newPost, function (data) { });
-        console.log("New post saved.")
-
-
     });
-
-});
