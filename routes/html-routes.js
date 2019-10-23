@@ -14,13 +14,23 @@ module.exports = function(app) {
 
   // index route loads index.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/user.html"));
+    res.redirect("/user");
   });
 
   // user route loads user.html
   app.get("/user", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/user.html"));
   });
+
+  app.get("/index", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+  });
+
+    // post route loads comment.html
+    app.get("/userpage", function(req, res) {
+      res.sendFile(path.join(__dirname, "../public/user-page.html"));
+    });
+  
 
   // recipe route loads recipe.html
   app.get("/recipe", function(req, res) {
@@ -31,5 +41,7 @@ module.exports = function(app) {
   app.get("/comment", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/comment.html"));
   });
+
+
 
 };
