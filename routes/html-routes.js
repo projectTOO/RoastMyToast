@@ -22,6 +22,12 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/user.html"));
   });
 
+    // post route loads comment.html
+    app.get("/userpage", function(req, res) {
+      res.sendFile(path.join(__dirname, "../public/user-page.html"));
+    });
+  
+
   // recipe route loads recipe.html
   app.get("/recipe", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/recipe.html"));
@@ -31,5 +37,7 @@ module.exports = function(app) {
   app.get("/comment", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/comment.html"));
   });
+
+
 
 };

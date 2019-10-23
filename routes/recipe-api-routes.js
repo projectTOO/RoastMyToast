@@ -33,23 +33,13 @@ module.exports = function (app) {
       app.get("/api/recipes/:id", function (req, res) {
         db.Recipe.findOne({
             where: {
-              RecipeId: req.params.id
+              id: req.params.id
             },
           }).then(function (dbRecipe) {
             res.json(dbRecipe);
           });
       });
 
-      // get user's recipes
-      app.get("/api/users/:id/recipes", function (req, res) {
-        db.Recipe.findOne({
-            where: {
-              UserId: req.params.id
-            },
-          }).then(function (dbRecipe) {
-            res.json(dbRecipe);
-          });
-      });
 
 
 }
