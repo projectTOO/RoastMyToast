@@ -2,7 +2,11 @@
 
 # Welcome
 
-To *Roast My Toast*, a recipe board where users can dish on each others' dish! This project was worked on by Giovanna Roman, Kemp Atkinson, and Fahad Alam.
+To ![*Roast My Toast*](https://project-0002.herokuapp.com/), a recipe board where users can dish on each others' dish!
+
+This App was designed to inspire our inner chefs to discover new recipes, share our inspirations with others, post comments and track the ratings, while keeping everything organized in just one place.
+
+This project was worked on by Giovanna Roman, Kemp Atkinson, and Fahad Alam.
 
 *Roast My Toast* allows you to:
 
