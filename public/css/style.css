@@ -70,3 +70,12 @@ h1 {
 .table {
     margin: 0px auto;
 }
+
+.usernametag {
+    font-style: italic;
+    color: blue;
+}
+
+.expand_icon {
+    width: 3%;
+}

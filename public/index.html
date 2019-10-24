@@ -103,11 +103,11 @@
                         console.log(data[i])
                         var row = $(".postContainer");
                         row.addClass("aPost");
-                        row.append(`<h3 data-id="${data[i].id}" class="expandrecipe">${data[i].title}</h3>`);
+                        row.append(`<h3 data-id="${data[i].id}" class="expandrecipe">${data[i].title}<img class="expand_icon" src="./img/expand.png"></h3>`);
                         row.append(`<p data-id="${data[i].UserId}" class='usernametag' id='fillmein${i}'></p>`);
                         row.append("<p>Category: " + data[i].category + "</p>");
                         userID = data[i].UserId;
-                        row.append("<img src='" + data[i].image_url + "' width=300>");
+                        row.append("<img src='" + data[i].image_url + "' width=300><br><br><hr>");
 
 
                         // row.append(`<p><a href='/api/recipes/:${data[i].id}'>${"See Full Recipe"}</a><hr>`);
