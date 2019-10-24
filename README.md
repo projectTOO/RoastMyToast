@@ -1,19 +1,37 @@
 ![header](./public/img/rmt_logo_readme.png)
 
-# Function
+# Welcome
 
+To *Roast My Toast*, a recipe board where users can dish on each others' dish! This project was worked on by Giovanna Roman, Kemp Atkinson, and Fahad Alam.
 
-*Roast My Toast* allows users to:
+*Roast My Toast* allows you to:
 
 ![point](./public/img/bullettoast.png) Post recipes, along with ingredients, instructions, and an image.
 
 ![point](./public/img/bullettoast.png) Rate other users' recipes.
 
-![point](./public/img/bullettoast.png) Leave comments on recipes.
+![point](./public/img/bullettoast.png) Leave comments on recipes. Roast away, but **be nice**. Mods like to hand out lifetime bans.
 
-# Database
+# Home
 
-# Routes
+![1](./public/img/rm_1.png)
+
+Here we display all of our recipes, displayed in a container dynamically created as it is pulled from our database. Hitting the title will expand the container to display the full recipe (shortened below), along with a chart of user comments and ratings, and a comment box:
+
+![2](./public/img/rm_2.png)
+
+
+# Users
+
+![3](./public/img/rm_3.png)
+
+Clicking on a username will bring up their profile, along with their recipe submissions, comments, and ratings given.
+
+# Posting
+
+![4](./public/img/rm_4.png)
+
+Users can use the *Roast My Toast* submission form to contribute to the sites recipe database, as well as adding a photo.
 
 # Resources Used
 
