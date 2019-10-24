@@ -48,12 +48,24 @@ module.exports = function (app) {
 
   // get user's recipes
   app.get("/api/users/:id/recipes", function (req, res) {
-    db.Recipe.findOne({
+    db.Recipe.findAll({
       where: {
         UserId: req.params.id
       },
     }).then(function (dbRecipe) {
       res.json(dbRecipe);
+    });
+  });
+
+   //  find users comments byUserId
+   app.get("/api/users/:id/comments", function (req, res) {
+
+    db.Comment.findAll({
+      where: {
+        UserId: req.params.id
+      },
+    }).then(function (dbComment) {
+      res.json(dbComment);
     });
   });
 

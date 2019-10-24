@@ -67,3 +67,6 @@ h1 {
     display: inline-block;
 }
 
+.table {
+    margin: 0px auto;
+}

@@ -31,7 +31,7 @@ module.exports = function (app) {
     //  find recipes comments by RecipeId
     app.get("/api/recipes/:id/comments", function (req, res) {
 
-      db.Comment.findOne({
+      db.Comment.findAll({
         where: {
           RecipeId: req.params.id
         },
@@ -40,17 +40,7 @@ module.exports = function (app) {
       });
     });
 
-    //  find users comments byUserId
-    app.get("/api/user/:id/comments", function (req, res) {
-
-      db.Comment.findOne({
-        where: {
-          UserId: req.params.id
-        },
-      }).then(function (dbComment) {
-        res.json(dbComment);
-      });
-    });
+   
 
 
 }
