@@ -36,21 +36,83 @@
             <!-- posts go here -->
 
         </div>
+
+        <div class="specificPost">
+            <h2 id="title"> Title of Selected Recipe Here </h2> <br>
+            <p id="category"> hot </p>
+            <p id="ingredients"> Boil water </p>
+            <p id="instructions"> water </p>
+
+            <img id="post_img" src="https://etc.usf.edu/clipart/21900/21988/square_21988_sm.gif" width="300">
+            <br>
+            <br>
+
+            <table class="table">
+                <tbody id="commentContainer">
+                    <tr>
+                        <td> USER </td>
+                        <td> COMMENT </td>
+                        <td> RATING </td>
+                    </tr>
+                </tbody>
+
+
+
+            </table>
+            <br>
+            <textarea type="text" id="message" placeholder="Type your comment here..."></textarea>
+            <textarea type="text" id="rating" placeholder="Type your rating here..."></textarea>
+            <!-- need image -->
+
+            <br>
+            <input type="submit" value="Submit" id="submit_comment">
+        </div>
+
+        <div class="userPage">
+            <h2 id="username"> [Username] </h2>
+
+            <h3> Recipes </h3>
+            <table class="table" id="userrecipes">
+                <tbody id="userrecipestable">
+                    <tr>
+                        <td> Recipes </td>
+                        <td> Category </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+            <h3> Comments </h3>
+            <table class="table" id="usercomments">
+                <tbody id="usercommentstable">
+                    <tr>
+                        <td> Recipes commented on </td>
+                        <td> Category </td>
+                        <td> Rating given </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
         <script>
             var data;
 
             function getRecipes() {
                 var userID;
+                $(".postContainer").show();
+                $(".specificPost").hide();
+                $(".userPage").hide();
 
                 $.get("/api/recipes", function (data) {
                     for (var i = 0; i < data.length; i++) {
+                        console.log(data[i])
                         var row = $(".postContainer");
                         row.addClass("aPost");
-                        row.append("<hr><h3>" + data[i].title + "</h3>");
-                        row.append(`<p id='fillmein${i}'></p>`);
-                        row.append("<p class='tiny'>Category: " + data[i].category + "</p>");
+                        row.append(`<h3 data-id="${data[i].id}" class="expandrecipe">${data[i].title}</h3>`);
+                        row.append(`<p data-id="${data[i].UserId}" class='usernametag' id='fillmein${i}'></p>`);
+                        row.append("<p>Category: " + data[i].category + "</p>");
                         userID = data[i].UserId;
-                        row.append("<img src='" + data[i].image_url + "' width=400>");
+                        row.append("<img src='" + data[i].image_url + "' width=300>");
 
 
                         // row.append(`<p><a href='/api/recipes/:${data[i].id}'>${"See Full Recipe"}</a><hr>`);
@@ -66,10 +128,126 @@
                     }
                 });
             }
+            
+
+            $(document).on("click", ".expandrecipe", function (e) {
+                $(".postContainer").hide();
+                $(".specificPost").show();
+                $(".userPage").hide();
+                var id = $(this).attr("data-id");
+
+                $.get("/api/recipes/" + id, function (data) {
+                    console.log(data);
+                    $("#title").text(data.title)
+                    $("#category").text(data.category)
+                    $("#ingredients").text(data.ingredients)
+                    $("#instructions").text(data.instructions)
+                    $("#post_img").attr("src", data.image_url)
+
+                });
+                //comments
+                $.get("/api/recipes/" + id + "/comments", function (data) {
+                    for (j = 0; j < data.length; j++) {
+                        var newRow = $(`<tr>`)
+                        var commenterID = data[j].UserId
+                        var commenterName;
+
+
+                        // var findName = function () {
+
+                        //     $.get("/api/users/" + commenterID, function (data2) {
+                        //         commenterName = data2.name
+                        //         newRow.append(`<td>` + data2.name + `</td>`);
+                        //         newRow.append(`</tr>`)
+                        //     }).done(function() {
+                        //         addRest();
+                        //     })
+                        // }
+
+                        newRow.append(`<td data-id="${data[j].id}" class=usernametag>`+ data[j].UserId + `</td>`);
+                        newRow.append(`<td>` + data[j].comment + `</td>`);
+                        newRow.append(`<td>` + data[j].rating + `</td>`);
+                        newRow.append(`</tr>`);
+
+                        $("#commentContainer").append(newRow);
+                    }
+
+                })
+
+
+
+            })
+ 
+
+            $(document).on("click", ".usernametag", function (e) {
+                $(".postContainer").hide();
+                $(".specificPost").hide();
+                $(".userPage").show();
+
+                var id = $(this).attr("data-id");
+                console.log(id)
+
+                $.get("/api/users/" + id, function (data) {
+                    console.log(data);
+                    $("#username").text(data.name)
+                });
+                //recipes
+
+                $.get("/api/users/" + id + "/comments", function (data) {
+                    console.log(data)
+                    for (j = 0; j < data.length; j++) {
+                        console.log(data[j])
+                        var newRow = $(`<tr>`)
+                        newRow.append(`<td data-id="${data[j].RecipeId}" class=expandrecipe>` + data[j].RecipeId + `</td>`);
+                        newRow.append(`<td>` + data[j].comment + `</td>`);
+                        newRow.append(`<td>` + data[j].rating + `</td>`);
+                        newRow.append(`</tr>`);
+
+                        $("#usercommentstable").append(newRow);
+                    }
+                })
+                
+                $.get(`/api/users/${id}/recipes`, function (data) {
+                    console.log(data)
+
+                    for (j = 0; j < data.length; j++) {
+                        console.log(data[j])
+                        var newRow = $(`<tr>`)
+                        newRow.append(`<td data-id="${data[j].id}" class=expandrecipe>`  + data[j].title + `</td>`);
+                        newRow.append(`<td>` + data[j].category + `</td>`);
+                        newRow.append(`</tr>`);
+
+                        $("#userrecipestable").append(newRow);
+                    }
+                });
+
+
+
+
+
+            })
+
+
+            $("#submit_comment").on("click", function (e) {
+                e.preventDefault()
+                var Message = $("#message").val().trim();
+                var Rating = $("#rating").val().trim()
+
+                var newComment = {
+                    //need userID
+                    message: Message,
+                    rating: Rating,
+                    //need recipeID
+                }
+                console.log(newComment)
+                $.ajax("/api/comments", {
+                    type: "POST",
+                    data: newComment
+                })
+                
+            })
+
             getRecipes();
-
-
-
         </script>
 </body>
 <script src="js/js.js"></script>
