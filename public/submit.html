@@ -6,14 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="./img/fav.png">
-
     <title>Submit Some Toast</title>
     <!-- style -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700&display=swap" rel="stylesheet">
-
     <!-- animsition.css -->
     <link rel="stylesheet" href="./dist/css/animsition.min.css">
     <!-- jQuery -->
@@ -24,61 +22,59 @@
 
 <body>
     <div class="switch">Dark mode:
-        <span class="inner-switch">OFF</span>
-    </div>
-
+        <span class="inner-switch">OFF</span></div>
     <img id="headerLogo" src="./img/rmt_logo_trans.png">
     <br>
     <div class="animsition">
-        <a href="./index.html" class="animsition-link">Home</a>
+        <a href="./index.html" class="animsition-link"><img src="./img/home.svg" class="icon" alt="Home"></a>
         <br><br><br>
 
-    <form action="../public/index.html" method="POST">
+        <form action="../public/index.html" method="POST">
 
-        <div class="row">
-            <div class="col">
-                <label for="title">Title</label>
+            <div class="row">
+                <div class="col">
+                    <label for="title">Title</label>
 
-                <input type="text" class="form-control" id="title" placeholder="Name Your Recipe">
+                    <input type="text" class="form-control" id="title" placeholder="Name Your Recipe">
                 </div>
                 <div class=" form-group col-md-4">
-                <label for="category">Category</label>
-                <select class="form-control" id="category">
-                    <option>Breakfast</option>
-                    <option>Lunch</option>
-                    <option>Dinner</option>
-                </select>
+                    <label for="category">Category</label>
+                    <select class="form-control" id="category">
+                        <option>Breakfast</option>
+                        <option>Lunch</option>
+                        <option>Dinner</option>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="form-group">
-            <label for="ingredients">Ingredients</label>
-            <input type="text" class="form-control" id="ingredients"
-                placeholder="e.g. 1 cup milk, 5 sticks of butter...">
-            <small class="form-text text-muted">Measurements are optional.</small>
-        </div>
-        <br>
-
-        <div class="form-group">
-            <label for="instructions">Recipe</label>
-            <textarea class="form-control" id="instructions" rows="3"
-                placeholder="Tell Us How to Cook Your Dish!"></textarea>
-        </div>
-        <br>
-
-        <div class="input-group">
-            <div class="custom-file">
-                <input type="file" class="custom-file-input" id="inputGroupFile04"
-                    aria-describedby="inputGroupFileAddon04">
-                <label class="custom-file-label" for="inputGroupFile04">Upload a Delicious Photo</label>
+            <br>
+            <div class="form-group">
+                <label for="ingredients">Ingredients</label>
+                <input type="text" class="form-control" id="ingredients"
+                    placeholder="e.g. 1 cup milk, 5 sticks of butter...">
+                <small class="form-text text-muted">Measurements are optional.</small>
             </div>
-        </div>
+            <br>
 
-        <br><br>
-        <button class="btn btn-primary" id="submit1" type="submit">Submit</button>
+            <div class="form-group">
+                <label for="instructions">Recipe</label>
+                <textarea class="form-control" id="instructions" rows="3"
+                    placeholder="Tell Us How to Cook Your Dish!"></textarea>
+            </div>
+            <br>
 
-    </form>
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile04"
+                        aria-describedby="inputGroupFileAddon04">
+                    <label class="custom-file-label" for="inputGroupFile04">Upload a Delicious Photo</label>
+                </div>
+            </div>
+
+            <br><br>
+            <button class="btn btn-primary" id="submit1" type="submit">Submit</button>
+
+        </form>
 
 
 
@@ -89,37 +85,37 @@
 <script src="js/js.js"></script>
 <!-- <script src="../routes/post-api-routes.js"></script> -->
 <script>
-	$("#submit1").on("click", function (e) {
+    $("#submit1").on("click", function (e) {
         e.preventDefault()
         //UPLOADING IMAGE LINK
         var imgur = "";
         var $files = $("#inputGroupFile04").get(0).files;
-            var apiUrl = 'https://api.imgur.com/3/image';
-            var apiKey = "d9cdab915eca601";
-            var settings = {
-                async: false,
-                crossDomain: true,
-                processData: false,
-                contentType: false,
-                type: 'POST',
-                url: apiUrl,
-                headers: {
-                    Authorization: 'Client-ID ' + apiKey,
-                    Accept: 'application/json'
-                },
-                mimeType: 'multipart/form-data'
-            };
-            var formData = new FormData();
-            formData.append("image", $files[0]);
-            settings.data = formData;
+        var apiUrl = 'https://api.imgur.com/3/image';
+        var apiKey = "d9cdab915eca601";
+        var settings = {
+            async: false,
+            crossDomain: true,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            url: apiUrl,
+            headers: {
+                Authorization: 'Client-ID ' + apiKey,
+                Accept: 'application/json'
+            },
+            mimeType: 'multipart/form-data'
+        };
+        var formData = new FormData();
+        formData.append("image", $files[0]);
+        settings.data = formData;
 
-            $.ajax(settings).done(function (response) {
-                imgObj = JSON.parse(response);
-                imgur = imgObj.data.link;
-            });
+        $.ajax(settings).done(function (response) {
+            imgObj = JSON.parse(response);
+            imgur = imgObj.data.link;
+        });
 
 
-		var Title = $("#title").val().trim();
+        var Title = $("#title").val().trim();
         var Category = $("#category").val();
         var Ingredients = $("#ingredients").val().trim()
         var Instructions = $("#instructions").val().trim()
@@ -135,14 +131,14 @@
         }
 
         console.log(newRecipe)
-	
+
         $.ajax("/api/recipes", {
-			type: "POST",
-			data: newRecipe
+            type: "POST",
+            data: newRecipe
         })
-        
+
         window.location.replace("./index.html");
-	})
+    })
 </script>
 
 </html>
