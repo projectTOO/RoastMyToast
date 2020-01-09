@@ -22,7 +22,7 @@ This project was worked on by Giovanna Roman, Kemp Atkinson, and Fahad Alam.
 
 Here we display all of our recipes, displayed in a container dynamically created as it is pulled from our database. Hitting the title will expand the container to display the full recipe (shortened below), along with a chart of user comments and ratings, and a comment box:
 
-![2](./public/img/rm_2.png)
+![2](./public/img/click.gif)
 
 
 # Users
